@@ -203,29 +203,15 @@ struct CaptureSettingsView: View {
     @Default(.captureFileType) var fileType
     @Default(.captureFileName) var fileName
     @Default(.aussieMode) var aussieMode
-    
+
     var body: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text("Image path:").font(.headline)
-                HStack {
-                    TextField(text: $capturePath) {}
-                    Button(action: {
-                        selectFolder { folderURL in
-                            if let url = folderURL {
-                                capturePath = url.path()
-                            }
-                        }
-                    }) {
-                        Image(systemName: "folder.fill")
-                    }.help("Pick a folder")
-                }
-            }.padding()
-            
+            PathSettingsView(path: $capturePath, title: "Image path:")
+                .padding()
             VStack(alignment: .leading) {
                 Text("File prefix:").font(.headline)
                 HStack {
-                    TextField(String(), text: $fileName)
+                    TextField("Enter a prefix", text: $fileName)
                     Button(action: {
                         fileName = Defaults.Keys.captureFileName.defaultValue
                     }) {
@@ -247,6 +233,7 @@ struct CaptureSettingsView: View {
     }
 }
 
+
 struct RecordingSettingsView: View {
     @Default(.recordingPath) var recordingPath
     @Default(.recordingFileName) var fileName
@@ -257,7 +244,7 @@ struct RecordingSettingsView: View {
     @Default(.aussieMode) var aussieMode
     
     @State private var isExcludedAppSheetPresented = false
-    
+
     var body: some View {
         VStack {
             Spacer()
@@ -276,28 +263,15 @@ struct RecordingSettingsView: View {
             
             Spacer()
             
-            VStack(alignment: .leading) {
-                Text("Video path:").font(.headline)
-                HStack {
-                    TextField(text: $recordingPath) {}
-                    Button(action: {
-                        selectFolder { folderURL in
-                            if let url = folderURL {
-                                recordingPath = url.path()
-                            }
-                        }
-                    }) {
-                        Image(systemName: "folder.fill")
-                    }.help("Pick a folder")
-                }
-            }.padding(.horizontal)
+            PathSettingsView(path: $recordingPath, title: "Video path:")
+                .padding()
             
             Spacer()
             
             VStack(alignment: .leading) {
                 Text("File prefix:").font(.headline)
                 HStack {
-                    TextField(String(), text: $fileName)
+                    TextField("Enter a prefix", text: $fileName)
                     Button(action: {
                         fileName = Defaults.Keys.recordingFileName.defaultValue
                     }) {
@@ -311,9 +285,9 @@ struct RecordingSettingsView: View {
             Button("Excluded applications") {
                 isExcludedAppSheetPresented.toggle()
             }.padding()
-                .sheet(isPresented: $isExcludedAppSheetPresented) {
-                    ExcludedAppsView().frame(maxHeight: 500)
-                }
+            .sheet(isPresented: $isExcludedAppSheetPresented) {
+                ExcludedAppsView().frame(maxHeight: 500)
+            }
         }.rotationEffect(aussieMode ? .degrees(180) : .zero)
     }
 }

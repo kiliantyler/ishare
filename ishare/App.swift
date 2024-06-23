@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, SPUUpdaterDelegate {
     var recordGif = false
     var screenRecorder: ScreenRecorder!
     var updaterController: SPUStandardUpdaterController!
+    var captureDirectoryPath: String?
     
     func application(_ application: NSApplication, open urls: [URL]) {
         if urls.count == 1 {
@@ -58,6 +59,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, SPUUpdaterDelegate {
         }
         
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: self, userDriverDelegate: nil)
+        captureDirectoryPath = accessSavedDirectory()
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        // Stop accessing security-scoped resource
+        if let directoryPath = captureDirectoryPath {
+            stopAccessingSavedDirectory(directory: directoryPath)
+        }
     }
     
     func stopRecording() {
@@ -79,6 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     static private(set) var shared: AppDelegate! = nil
     var recordGif = false
     var screenRecorder: ScreenRecorder!
+    var captureDirectoryPath: String?
     
     func application(_ application: NSApplication, open urls: [URL]) {
         if urls.count == 1 {
@@ -91,6 +101,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         Task {
             screenRecorder = ScreenRecorder()
+        }
+        captureDirectoryPath = accessSavedDirectory()
+    }
+    
+    func applicationWillTerminate(_ notification: Notification) {
+        if let directoryPath = captureDirectoryPath {
+            stopAccessingSavedDirectory(directory: directoryPath)
         }
     }
     

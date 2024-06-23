@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		399346C72C28CC0D00298653 /* BookmarkFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399346C62C28CC0D00298653 /* BookmarkFolder.swift */; };
+		399346C82C28CC0D00298653 /* BookmarkFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399346C62C28CC0D00298653 /* BookmarkFolder.swift */; };
+		39B539F02C28FB150030B05C /* PathSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B539EF2C28FB150030B05C /* PathSettingView.swift */; };
+		39B539F12C28FB150030B05C /* PathSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B539EF2C28FB150030B05C /* PathSettingView.swift */; };
 		3A0679E12A648C0F0088DE6A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0679E02A648C0F0088DE6A /* SwiftyJSON */; };
 		3A17C0792A61A20E0012F285 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3A17C0782A61A20E0012F285 /* Alamofire */; };
 		3A17C07C2A61A2510012F285 /* Imgur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A17C07B2A61A2510012F285 /* Imgur.swift */; };
@@ -100,6 +104,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		399346C62C28CC0D00298653 /* BookmarkFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkFolder.swift; sourceTree = "<group>"; };
+		39B539EF2C28FB150030B05C /* PathSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathSettingView.swift; sourceTree = "<group>"; };
 		3A17C07B2A61A2510012F285 /* Imgur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Imgur.swift; sourceTree = "<group>"; };
 		3A25F99E2B5B47E000AEF3AA /* ContentSharingPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSharingPickerManager.swift; sourceTree = "<group>"; };
 		3A59CD5D2A6EE47E00E85161 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
@@ -248,6 +254,7 @@
 				3AB345C52A5F0C7A00AAEC0E /* Constants.swift */,
 				3AB38D032A62B56B00184E0D /* CustomUploader.swift */,
 				3AEFA5662A9FC15800F485B4 /* PreviewImage.swift */,
+				399346C62C28CC0D00298653 /* BookmarkFolder.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				3AB38D0A2A62F28700184E0D /* UploaderSettings.swift */,
+				39B539EF2C28FB150030B05C /* PathSettingView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -400,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB345B12A5E7D4100AAEC0E /* MainMenuView.swift in Sources */,
+				399346C72C28CC0D00298653 /* BookmarkFolder.swift in Sources */,
 				3A9A9FD82A5C84B5007BA5C9 /* App.swift in Sources */,
 				3A59CD5E2A6EE47E00E85161 /* VideoCapture.swift in Sources */,
 				3A25F99F2B5B47E000AEF3AA /* ContentSharingPickerManager.swift in Sources */,
@@ -410,6 +419,7 @@
 				3AB38D042A62B56B00184E0D /* CustomUploader.swift in Sources */,
 				3AB38D062A62C35C00184E0D /* Custom.swift in Sources */,
 				3A72B9972A752AD000B2DEBA /* CaptureEngine.swift in Sources */,
+				39B539F02C28FB150030B05C /* PathSettingView.swift in Sources */,
 				3A72B9952A752A0A00B2DEBA /* ScreenRecorder.swift in Sources */,
 				3AF7F0212B3EF16B000117DD /* HistoryGridView.swift in Sources */,
 				3AE7312A2B47052E006F10F7 /* UploadManager.swift in Sources */,
@@ -430,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ABDF38E2BD5FB2A0045BDE5 /* MainMenuView.swift in Sources */,
+				399346C82C28CC0D00298653 /* BookmarkFolder.swift in Sources */,
 				3ABDF38F2BD5FB2A0045BDE5 /* App.swift in Sources */,
 				3ABDF3902BD5FB2A0045BDE5 /* VideoCapture.swift in Sources */,
 				3ABDF3912BD5FB2A0045BDE5 /* ContentSharingPickerManager.swift in Sources */,
@@ -440,6 +451,7 @@
 				3ABDF3962BD5FB2A0045BDE5 /* CustomUploader.swift in Sources */,
 				3ABDF3972BD5FB2A0045BDE5 /* Custom.swift in Sources */,
 				3ABDF3982BD5FB2A0045BDE5 /* CaptureEngine.swift in Sources */,
+				39B539F12C28FB150030B05C /* PathSettingView.swift in Sources */,
 				3ABDF3992BD5FB2A0045BDE5 /* ScreenRecorder.swift in Sources */,
 				3ABDF39A2BD5FB2A0045BDE5 /* HistoryGridView.swift in Sources */,
 				3ABDF39B2BD5FB2A0045BDE5 /* UploadManager.swift in Sources */,

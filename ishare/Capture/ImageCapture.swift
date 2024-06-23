@@ -34,13 +34,11 @@ func captureScreen(type: CaptureType, display: Int = 1) -> Void {
     @Default(.captureBinary) var captureBinary
     @Default(.uploadType) var uploadType
     @Default(.saveToDisk) var saveToDisk
-    
+
     let timestamp = Int(Date().timeIntervalSince1970)
     let uniqueFilename = "\(fileName)-\(timestamp)"
-    
-    var path = "\(capturePath)\(uniqueFilename).\(fileType)"
-    path = NSString(string: path).expandingTildeInPath
-    
+    let path = "\(ensureTrailingSlash(capturePath))\(uniqueFilename).\(fileType)"
+
     let task = Process()
     task.launchPath = captureBinary
     task.arguments = type == CaptureType.SCREEN ? [type.rawValue, fileType.rawValue, "-D", "\(display)", path] : [type.rawValue, fileType.rawValue, path]
@@ -48,22 +46,21 @@ func captureScreen(type: CaptureType, display: Int = 1) -> Void {
     task.waitUntilExit()
     
     let fileURL = URL(fileURLWithPath: path)
-    
+
     if !FileManager.default.fileExists(atPath: fileURL.path) {
         return
     }
-    
+
     if copyToClipboard {
         let pasteboard = NSPasteboard.general
         pasteboard.clearContents()
-        
         pasteboard.setString(fileURL.absoluteString, forType: .fileURL)
     }
-    
+
     if openInFinder {
         NSWorkspace.shared.activateFileViewerSelecting([fileURL])
     }
-    
+
     if uploadMedia {
         uploadFile(fileURL: fileURL, uploadType: uploadType) {
             showToast(fileURL: fileURL) {

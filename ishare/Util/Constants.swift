@@ -148,14 +148,16 @@ extension utsname {
     }
 }
 
-func selectFolder(completion: @escaping (URL?) -> Void) {
+func selectFolder(startingAt directoryURL: URL? = nil, completion: @escaping (URL?) -> Void) {
     let folderPicker = NSOpenPanel()
     folderPicker.canChooseDirectories = true
     folderPicker.canChooseFiles = false
     folderPicker.allowsMultipleSelection = false
     folderPicker.canDownloadUbiquitousContents = true
     folderPicker.canResolveUbiquitousConflicts = true
-    
+    if let directoryURL = directoryURL {
+        folderPicker.directoryURL = directoryURL
+    }
     folderPicker.begin { response in
         if response == .OK {
             completion(folderPicker.urls.first)
